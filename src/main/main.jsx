@@ -9,11 +9,14 @@ import PrivateRoutes from "../components/authentication/PrivateRoutes";
 import NotFound from "../pages/NotFound";
 import RequiredAuth from "../components/authentication/RequiredAuth";
 import { AuthProvider } from "../context/AuthProvider";
+import GlobalNav from "../components/common/GlobalNav";
+import SettingsPage from "../pages/SettingsPage";
 
 const App = () => {
   return (
     <Router>
       <AuthProvider>
+        <GlobalNav />
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
@@ -22,6 +25,7 @@ const App = () => {
           {/* Protected routes */}
           <Route element={<RequiredAuth />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
 
           {/* Catch all routes */}

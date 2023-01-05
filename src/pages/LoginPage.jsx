@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginForm from "../components/authentication/LoginForm";
 import useAuth from "../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -18,7 +18,7 @@ function LoginPage() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -37,10 +37,12 @@ function LoginPage() {
     const token = response?.token;
     const user = "Chaldrak";
     setAuth({ user, token });
+    localStorage.setItem("user", JSON.stringify({ user, token }));
     navigate(from, { replace: true });
   };
+  useEffect(() => {});
   return (
-    <div className="grid h-[100vh] w-full grid-cols-2">
+    <div className="grid h-[89vh] w-full grid-cols-2">
       <div className="bg-[url('../assets/bg.jpg')] bg-cover bg-center bg-no-repeat"></div>
       <LoginForm {...form} onChange={handleChange} onSubmit={handleSubmit} />
     </div>
