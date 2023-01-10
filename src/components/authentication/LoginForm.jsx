@@ -1,12 +1,14 @@
+import Alert from "../common/Alert";
 import BaseInput from "../common/BaseInput";
 
-function LoginForm({ email, password, onChange, onSubmit }) {
+function LoginForm({ email, password, onChange, onSubmit, error }) {
   return (
     <form
       onSubmit={onSubmit}
       className="flex h-full w-full flex-col items-center justify-center space-y-7 px-20 text-white"
     >
       <h1 className="text-4xl">Sign In</h1>
+      <Alert error={error} />
       <BaseInput
         type="email"
         name="email"

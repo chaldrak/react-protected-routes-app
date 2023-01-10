@@ -10,13 +10,20 @@ function UserIcon() {
     navigate("/", { replace: true });
     setAuth({});
   };
+  const localUser = localStorage.getItem("user");
+  const token = localUser ? JSON.parse(localUser).token : "";
+  const user = token ? JSON.parse(atob(token.split(".")[1])) : {};
+  console.log(user);
   return (
     <div className="dropdown-end dropdown">
-      <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
-        <div className="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" />
-        </div>
-      </label>
+      <div className="flex items-center space-x-3">
+        <strong>{user.user_name}</strong>
+        <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
+          <div className="w-10 rounded-full">
+            <img src="https://placeimg.com/80/80/people" />
+          </div>
+        </label>
+      </div>
       <ul
         tabIndex={0}
         className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
