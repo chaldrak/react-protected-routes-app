@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const UserAuth = () => {
   const { auth } = useAuth();
-  return auth?.user ? (
+  return auth?.token ? (
     <UserIcon />
   ) : (
     <NavLink to="/login" className="btn-primary btn text-xl normal-case">

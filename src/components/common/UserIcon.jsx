@@ -1,7 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 function UserIcon() {
+  const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
+  const logout = () => {
+    localStorage.removeItem("user");
+    navigate("/", { replace: true });
+    setAuth({});
+  };
   return (
     <div className="dropdown-end dropdown">
       <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
@@ -23,7 +31,7 @@ function UserIcon() {
           <NavLink to="/settings">Settings</NavLink>
         </li>
         <li>
-          <NavLink to="/login">Logout</NavLink>
+          <button onClick={logout}>Logout</button>
         </li>
       </ul>
     </div>

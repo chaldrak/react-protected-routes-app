@@ -4,7 +4,7 @@ import UserAuth from "./UserAuth";
 
 const GlobalNav = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
       <div className="flex-1">
         <NavLink to="/" className="btn-ghost btn text-xl normal-case">
           Edonadô
