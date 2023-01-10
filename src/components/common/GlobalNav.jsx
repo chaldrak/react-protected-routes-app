@@ -7,7 +7,7 @@ const GlobalNav = () => {
     <div className="navbar bg-base-300">
       <div className="flex-1">
         <NavLink to="/" className="btn-ghost btn text-xl normal-case">
-          Edonadô
+          MangaQuizz ❓
         </NavLink>
       </div>
       <div className="flex-none">

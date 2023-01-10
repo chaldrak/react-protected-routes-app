@@ -3,7 +3,7 @@ import LoginForm from "../components/authentication/LoginForm";
 import useAuth from "../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 
-let api_url = "http://localhost:8080/api";
+let api_url = "https://manga-quizz-api.onrender.com/api";
 
 async function login(credentials) {
   const res = await fetch(`${api_url}/auth/login`, {
